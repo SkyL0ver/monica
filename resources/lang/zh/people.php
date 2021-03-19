@@ -1,7 +1,7 @@
 <?php
 
 /**
- * ⚠️ Edition not allowed except for 'en' language.
+ * ⚠️ Editing not allowed except for 'en' language.
  *
  * @see https://github.com/monicahq/monica/blob/master/docs/contribute/translate.md for translations.
  */
@@ -32,7 +32,7 @@ return [
     'people_search_no_results' => '未找到任何结果',
     'people_search_next' => '下一页',
     'people_search_prev' => '上一页',
-    'people_search_rows_per_page' => '每页行数:',
+    'people_search_rows_per_page' => 'Rows per page',
     'people_search_of' => '/',
     'people_search_page' => '页',
     'people_search_all' => '所有',
@@ -57,7 +57,7 @@ return [
     'people_delete_success' => '联系人已被删除',
     'people_delete_message' => '删除联系人',
     'people_delete_confirmation' => '确实要删除此联系人吗？删除是永久性的。',
-    'people_add_birthday_reminder' => '祝: name生日快乐',
+    'people_add_birthday_reminder' => '祝 :name 生日快乐',
     'people_add_birthday_reminder_deceased' => 'On this date, :name, would have celebrated his birthday',
     'people_add_import' => '是否要 <a href=":url">导入您的联系人</a>？',
     'people_edit_email_error' => '您的联系人中已经有人使用此电子邮件，请更换一个',
@@ -500,8 +500,8 @@ return [
     'photo_current_profile_pic' => '目前头像',
     'photo_make_profile_pic' => '制作头像',
     'photo_delete' => '删除照片',
-    'photo_next' => 'Next photo',
-    'photo_previous' => 'Previous photo',
+    'photo_next' => 'Next photo ❯',
+    'photo_previous' => '❮ Previous photo',
 
     // Avatars
     'avatar_change_title' => '更换头像',

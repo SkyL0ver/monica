@@ -1,7 +1,7 @@
 <?php
 
 /**
- * ⚠️ Edition not allowed except for 'en' language.
+ * ⚠️ Editing not allowed except for 'en' language.
  *
  * @see https://github.com/monicahq/monica/blob/master/docs/contribute/translate.md for translations.
  */
@@ -32,7 +32,7 @@ return [
     'people_search_no_results' => 'Sonuç bulunamadı',
     'people_search_next' => 'Sonraki',
     'people_search_prev' => 'Önceki',
-    'people_search_rows_per_page' => 'Sayfa başına satır:',
+    'people_search_rows_per_page' => 'Rows per page',
     'people_search_of' => '/',
     'people_search_page' => 'Sayfa',
     'people_search_all' => 'Hepsi',
@@ -434,11 +434,11 @@ return [
     'life_event_delete_description' => 'Bu yaşam olayını silmek istediğinizden emin misiniz? Silme işlemi geri alınamaz.',
     'life_event_delete_success' => 'Yaşam olayı silindi',
     'life_event_date_it_happened' => 'Meydana geldiği tarih',
-    'life_event_category_work_education' => 'Work & education',
-    'life_event_category_family_relationships' => 'Family & relationships',
-    'life_event_category_home_living' => 'Home & living',
-    'life_event_category_health_wellness' => 'Health & wellness',
-    'life_event_category_travel_experiences' => 'Travel & experiences',
+    'life_event_category_work_education' => 'İş & eğitim',
+    'life_event_category_family_relationships' => 'Aile & ilişkiler',
+    'life_event_category_home_living' => 'Ev & yaşam',
+    'life_event_category_health_wellness' => 'Sağlık & sıhhat',
+    'life_event_category_travel_experiences' => 'Seyahat & deneyimler',
     'life_event_sentence_new_job' => 'Yeni bir iş başlatmak',
     'life_event_sentence_retirement' => 'Emekli olmak',
     'life_event_sentence_new_school' => 'Okula başlamak',
@@ -500,8 +500,8 @@ return [
     'photo_current_profile_pic' => 'Mevcut profil resmi',
     'photo_make_profile_pic' => 'Profil resmi yapın',
     'photo_delete' => 'Fotoğrafı sil',
-    'photo_next' => 'Next photo',
-    'photo_previous' => 'Previous photo',
+    'photo_next' => 'Next photo ❯',
+    'photo_previous' => '❮ Previous photo',
 
     // Avatars
     'avatar_change_title' => 'Avatarınızı değiştirin',
@@ -511,7 +511,7 @@ return [
     'avatar_gravatar' => 'Bu kişinin e-posta adresiyle ilişkili Gravatar.<a href="https://gravatar.com/">Gravatar</a>, kullanıcıların e-posta adreslerini fotoğraflarla ilişkilendirmelerini sağlayan global bir sistemdir.',
     'avatar_current' => 'Mevcut avatarı kullanın',
     'avatar_photo' => 'Yüklediğiniz bir fotoğraftan',
-    'avatar_crop_new_avatar_photo' => 'Crop new avatar photo',
+    'avatar_crop_new_avatar_photo' => 'Yeni profil resmini kırp',
 
     // emotions
     'emotion_this_made_me_feel' => 'Bu size … hissettirdi',

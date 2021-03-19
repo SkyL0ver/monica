@@ -1,7 +1,7 @@
 <?php
 
 /**
- * ⚠️ Edition not allowed except for 'en' language.
+ * ⚠️ Editing not allowed except for 'en' language.
  *
  * @see https://github.com/monicahq/monica/blob/master/docs/contribute/translate.md for translations.
  */
@@ -23,7 +23,7 @@ return [
     'throttle' => 'Te veel inlogpogingen. Probeer opnieuw in :seconds seconden.',
     'not_authorized' => 'Je bent niet gemachtigd om dit te doen',
     'signup_disabled' => 'Registratie is momenteel uitgeschakeld',
-    'signup_error' => 'An error occured trying to register the user',
+    'signup_error' => 'Er is een fout opgetreden bij het registreren van de gebruiker',
     'back_homepage' => 'Terug naar homepage',
     'mfa_auth_otp' => 'Verifieer met je tweestapsverificatie apparaat',
     'mfa_auth_webauthn' => 'Authenticeer met een beveiligingssleutel (WebAuthn)',

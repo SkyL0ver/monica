@@ -2,15 +2,20 @@
 
 ### New features:
 
-*
+* Add an artisan command to create an account
+* Add the notion of AddressBooks
+* Allow customization of life event types
 
 ### Enhancements:
 
-*
+* Use Unknown as default gender
+* Better padding and text about Me as a contact on Settings page
 
 ### Fixes:
 
-*
+* Fix adding a gender type
+* Fix update activity with emotions
+* Fix bad return with wrong credential on oauth/login api
 
 
 # RELEASED VERSIONS:

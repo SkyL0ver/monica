@@ -1,7 +1,7 @@
 <?php
 
 /**
- * ⚠️ Edition not allowed except for 'en' language.
+ * ⚠️ Editing not allowed except for 'en' language.
  *
  * @see https://github.com/monicahq/monica/blob/master/docs/contribute/translate.md for translations.
  */
@@ -32,7 +32,7 @@ return [
     'people_search_no_results' => 'Geen resultaten gevonden',
     'people_search_next' => 'Volgende',
     'people_search_prev' => 'Vorige',
-    'people_search_rows_per_page' => 'Rijen per pagina:',
+    'people_search_rows_per_page' => 'Rows per page',
     'people_search_of' => 'van',
     'people_search_page' => 'Pagina',
     'people_search_all' => 'Iedereen',
@@ -58,7 +58,7 @@ return [
     'people_delete_message' => 'Contact verwijderen',
     'people_delete_confirmation' => 'Weet je zeker dat je dit contact wilt verwijderen? Dit is permanent.',
     'people_add_birthday_reminder' => 'Feliciteer :name met zijn/haar verjaardag',
-    'people_add_birthday_reminder_deceased' => 'On this date, :name, would have celebrated his birthday',
+    'people_add_birthday_reminder_deceased' => 'Op deze datum zou :name zijn verjaardag hebben gevierd',
     'people_add_import' => 'Wil je <a href=":url">contacten importeren</a>?',
     'people_edit_email_error' => 'Er is al een contactpersoon in jouw account met dit e-mailadres. Kies alsjeblieft een ander.',
     'people_export' => 'Exporteer als vCard',
@@ -208,7 +208,7 @@ return [
     'reminders_type_week' => 'week',
     'reminders_type_month' => 'maand',
     'reminders_type_year' => 'jaar',
-    'reminders_birthday' => 'Verjaardag van :naam',
+    'reminders_birthday' => 'Verjaardag van :name',
     'reminders_free_plan_warning' => 'Je hebt een gratis abonnement. Hiermee worden geen e-mails verzonden. Als je herinneringen per e-mail wilt ontvangen, upgrade dan je account.',
 
     // relationships
@@ -322,7 +322,7 @@ return [
     'gifts_add_someone' => 'Dit cadeau is voor iemand in {name}\'s familie',
     'gifts_delete_title' => 'Een cadeau verwijderen',
     'gifts_ideas' => 'Cadeau-ideeën',
-    'gifts_offered' => 'Cadeaus aangeboden',
+    'gifts_offered' => 'Cadeau aangeboden',
     'gifts_offered_as_an_idea' => 'Als idee markeren',
     'gifts_received' => 'Ontvangen cadeaus',
     'gifts_view_comment' => 'Opmerking bekijken',
@@ -500,18 +500,18 @@ return [
     'photo_current_profile_pic' => 'Huidige profielfoto',
     'photo_make_profile_pic' => 'Stel in als profielfoto',
     'photo_delete' => 'Foto verwijderen',
-    'photo_next' => 'Volgende foto',
-    'photo_previous' => 'Vorige foto',
+    'photo_next' => 'Next photo ❯',
+    'photo_previous' => '❮ Previous photo',
 
     // Avatars
-    'avatar_change_title' => 'Change your avatar',
+    'avatar_change_title' => 'Wijzig je profielfoto',
     'avatar_question' => 'Welke avatar wil je gebruiken?',
     'avatar_default_avatar' => 'De standaard-avatar',
     'avatar_adorable_avatar' => 'De Schattige avatar',
     'avatar_gravatar' => 'The Gravatar dat geassocieerd is met dit contact. <a href="https://gravatar.com/">Gravatar</a> is een wereldwijd systeem dat gebruikers hun emailadres laat associëren met hun foto\'s.',
     'avatar_current' => 'Huidige avatar houden',
     'avatar_photo' => 'Van een foto die je upload',
-    'avatar_crop_new_avatar_photo' => 'Crop new avatar photo',
+    'avatar_crop_new_avatar_photo' => 'Snij nieuwe avatar foto bij',
 
     // emotions
     'emotion_this_made_me_feel' => 'Je voelde je…',

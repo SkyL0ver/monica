@@ -19,6 +19,11 @@ Route::get('/', 'Auth\LoginController@showLoginOrRegister')->name('loginRedirect
 
 Auth::routes(['verify' => true]);
 
+// Redirect .well-known urls (https://en.wikipedia.org/wiki/List_of_/.well-known/_services_offered_by_webservers)
+Route::permanentRedirect('/.well-known/carddav', '/dav/');
+Route::permanentRedirect('/.well-known/caldav', '/dav/');
+Route::permanentRedirect('/.well-known/security.txt', '/security.txt');
+
 Route::get('/invitations/accept/{key}', 'Auth\InvitationController@show')->name('invitations.accept');
 Route::post('/invitations/accept/{key}', 'Auth\InvitationController@store')->name('invitations.send');
 
@@ -224,6 +229,9 @@ Route::middleware(['auth', 'verified', 'mfa'])->group(function () {
 
             Route::apiResource('settings/personalization/activitytypecategories', 'Account\\Activity\\ActivityTypeCategoriesController');
             Route::apiResource('settings/personalization/activitytypes', 'Account\\Activity\\ActivityTypesController', ['except' => ['index']]);
+
+            Route::get('settings/personalization/lifeeventcategories', 'Account\\LifeEvent\\LifeEventCategoriesController@index');
+            Route::apiResource('settings/personalization/lifeeventtypes', 'Account\\LifeEvent\\LifeEventTypesController', ['except' => ['index']]);
         });
 
         Route::get('/settings/export', 'SettingsController@export')->name('export');

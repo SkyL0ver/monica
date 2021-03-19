@@ -40,9 +40,9 @@
                 </a>
               </li>
               <li class="di">
-                <a v-cy-name="'entry-delete-button-' + entry.id" class="pointer" href="" @click.prevent="trash()">
+                <confirm v-cy-name="'entry-delete-button-' + entry.id" :message="$t('journal.delete_confirmation')" @confirm="trash()">
                   {{ $t('app.delete') }}
-                </a>
+                </confirm>
               </li>
             </ul>
           </div>
@@ -53,7 +53,13 @@
 </template>
 
 <script>
+import Confirm from '../../partials/Confirm.vue';
+
 export default {
+
+  components: {
+    Confirm,
+  },
 
   props: {
     journalEntry: {

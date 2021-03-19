@@ -1,7 +1,7 @@
 <?php
 
 /**
- * ⚠️ Edition not allowed except for 'en' language.
+ * ⚠️ Editing not allowed except for 'en' language.
  *
  * @see https://github.com/monicahq/monica/blob/master/docs/contribute/translate.md for translations.
  */
@@ -462,4 +462,10 @@ return [
     'dav_birthdays_description' => 'ימי ההולדת של אנשי הקשר של :name',
     'dav_tasks' => 'משימות',
     'dav_tasks_description' => 'המשימות של :name',
+
+    // contact list
+    'contact_list_avatar' => 'תמונה ייצוגית',
+    'contact_list_name' => 'איש קשר',
+    'contact_list_description' => 'תיאור',
+
 ];
