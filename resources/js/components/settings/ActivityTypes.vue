@@ -1,6 +1,3 @@
-<style scoped>
-</style>
-
 <template>
   <div>
     <notifications group="activityTypes" position="bottom right" />
@@ -197,7 +194,7 @@
     <!-- Delete Activiy type category -->
     <sweet-modal ref="deleteCategoryModal" overlay-theme="dark" :title="$t('settings.personalization_activity_type_category_modal_delete')">
       <form>
-        <div v-if="errorMessage != ''" class="form-error-message mb3">
+        <div v-if="errorMessage !== ''" class="form-error-message mb3">
           <div class="pa2">
             <p class="mb0">
               {{ errorMessage }}
@@ -223,7 +220,7 @@
     <!-- Delete Activiy type  -->
     <sweet-modal ref="deleteTypeModal" overlay-theme="dark" :title="$t('settings.personalization_activity_type_modal_delete')">
       <form>
-        <div v-if="errorMessage != ''" class="form-error-message mb3">
+        <div v-if="errorMessage !== ''" class="form-error-message mb3">
           <div class="pa2">
             <p class="mb0">
               {{ errorMessage }}
@@ -313,7 +310,7 @@ export default {
 
   computed: {
     dirltr() {
-      return this.$root.htmldir == 'ltr';
+      return this.$root.htmldir === 'ltr';
     }
   },
 

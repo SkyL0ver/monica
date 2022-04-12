@@ -126,4 +126,43 @@ class CollectionHelperTest extends FeatureTestCase
         $this->assertEquals($collator->getAttribute(\Collator::FRENCH_COLLATION), \Collator::ON);
         $this->assertEquals($collator->getLocale(\Locale::VALID_LOCALE), 'fr');
     }
+
+    /** @test */
+    public function group_by_items_property()
+    {
+        $object1 = (object) ['name' => 'John'];
+        $object2 = (object) ['name' => 'Jack'];
+        $object3 = (object) ['name' => 'John'];
+
+        $collection = collect([
+            $object1,
+            $object2,
+            $object3,
+        ]);
+
+        $collection = CollectionHelper::groupByItemsProperty($collection, 'name');
+
+        $this->assertEquals(
+            [
+                'John' => [$object1, $object3],
+                'Jack' => [$object2],
+            ],
+            $collection->toArray()
+        );
+    }
+
+    /** @test */
+    public function it_maps_uuid()
+    {
+        $collection = collect();
+        for ($i = 1; $i <= 3; $i++) {
+            $uuid = new \stdClass();
+            $uuid->uuid = $i;
+            $collection->push($uuid);
+        }
+
+        $uuids = $collection->mapUuid();
+
+        $this->assertEquals([1, 2, 3], $uuids);
+    }
 }

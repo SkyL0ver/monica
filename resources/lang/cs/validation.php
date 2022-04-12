@@ -3,7 +3,7 @@
 /**
  * ⚠️ Editing not allowed except for 'en' language.
  *
- * @see https://github.com/monicahq/monica/blob/master/docs/contribute/translate.md for translations.
+ * @see https://github.com/monicahq/monica/blob/main/docs/contribute/translate.md for translations.
  */
 
 return [
@@ -153,5 +153,14 @@ return [
     */
 
     'attributes' => [],
+
+    'vue' => [
+        'max' => [
+            'numeric' => '{field} nesmí být větší než {max}.',
+            'string' => '{field} nesmí být delší než {max} znaků.',
+        ],
+        'required' => '{field} je povinné.',
+        'url' => '{field} není platná adresa URL.',
+    ],
 
 ];

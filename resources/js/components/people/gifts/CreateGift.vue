@@ -81,6 +81,9 @@
             <li v-if="!reachLimit" v-show="!displayUpload" class="di pointer" :class="dirltr ? 'mr3' : 'ml3'">
               <a href="" @click.prevent="() => { displayUpload = true; $refs.upload.showUploadZone(); }">{{ $t('people.gifts_add_photo') }}</a>
             </li>
+            <li v-show="!displayDate" class="di pointer" :class="dirltr ? 'mr3' : 'ml3'">
+              <a href="" @click.prevent="displayDate = true">{{ $t('people.gifts_add_date') }}</a>
+            </li>
           </ul>
         </div>
 
@@ -105,6 +108,19 @@
             :class="'dtc pr2'"
             :title="$t('people.gifts_add_link')"
             :placeholder="'https://'"
+            @submit="store"
+          />
+        </div>
+
+        <div v-if="displayDate" class="dt dt--fixed pb3 mb3 bb b--gray-monica">
+          <!-- Date -->
+          <form-date
+            :id="'date'"
+            v-model="newGift.date"
+            :show-calendar-on-focus="true"
+            :locale="locale"
+            :class="[ dirltr ? 'fl dtc pr2' : 'fr dtc pr2' ]"
+            :label="$t('people.gifts_add_date')"
             @submit="store"
           />
         </div>
@@ -148,8 +164,9 @@
           </span>
 
           <photo-upload
-            v-show="photos.length == 0"
+            v-show="photos.length === 0"
             ref="upload"
+            :hash="hash"
             :contact-id="contactId"
             @upload.stop="handlePhoto($event)"
           />
@@ -226,6 +243,10 @@ export default {
   },
 
   props: {
+    hash: {
+      type: String,
+      default: '',
+    },
     contactId: {
       type: Number,
       default: 0,
@@ -252,6 +273,7 @@ export default {
       displayAmount: false,
       displayRecipient: false,
       displayUpload: false,
+      displayDate: false,
       newGift: {
         name: '',
         status: 'idea',
@@ -294,14 +316,15 @@ export default {
     },
 
     dirltr() {
-      return this.$root.htmldir == 'ltr';
+      return this.$root.htmldir === 'ltr';
     },
 
     displayMenu() {
       return !this.displayComment ||
         !this.displayUrl ||
         !this.displayAmount ||
-        !(this.displayRecipient || this.familyContacts.length == 0) ||
+        !this.displayDate ||
+        !(this.displayRecipient || this.familyContacts.length === 0) ||
         !(this.displayUpload || this.reachLimit);
     }
   },
@@ -327,7 +350,7 @@ export default {
         this.newGift.amount = this.gift.amount;
         this.newGift.status = this.gift.status;
         this.newGift.recipient_id = this.gift.recipient ? this.gift.recipient.id : null;
-        this.hasRecipient = this.newGift.recipient_id != null;
+        this.hasRecipient = this.newGift.recipient_id !== null;
         this.newGift.date = this.gift.date;
         this.photos = this.gift.photos;
       } else {
@@ -341,8 +364,9 @@ export default {
         this.hasRecipient = false;
       }
       this.displayComment = this.gift ? this.gift.comment : false;
+      this.displayDate = this.gift ? this.gift.date : false;
       this.displayUrl = this.gift ? this.gift.url : false;
-      this.displayAmount = this.gift ? this.gift.amount != '' : false;
+      this.displayAmount = this.gift ? this.gift.amount !== '' : false;
       this.displayRecipient = this.gift ? (this.gift.recipient ? this.gift.recipient.id !== 0 : false) : false;
       this.displayUpload= this.gift ? this.gift.photos.length > 0 : false;
 
@@ -367,7 +391,8 @@ export default {
       }
 
       const method = this.gift ? 'put' : 'post';
-      const url = this.gift ? 'api/gifts/'+this.gift.id : 'api/gifts';
+      const url = `people/${this.hash}/gifts${this.gift ? '/'+this.gift.id : ''}`;
+
 
       const vm = this;
       axios[method](url, this.newGift)
@@ -398,7 +423,7 @@ export default {
       return this.$refs.upload.forceFileUpload()
         .then(photo => {
           if (photo !== undefined) {
-            axios.put('api/gifts/'+response.data.data.id+'/photo/'+photo.id);
+            axios.put(`people/${this.hash}/gifts/${response.data.data.id}/photo/${photo.id}`);
             response.data.data.photos.push(photo);
           }
           return response;
@@ -418,10 +443,10 @@ export default {
     },
 
     deletePhoto(photo) {
-      axios.delete('api/photos/' + photo.id)
+      axios.delete(`people/${this.hash}/photos/${photo.id}`)
         .then(response => {
           this.photos.splice(this.photos.indexOf(photo), 1);
-          if (this.photos.length == 0) {
+          if (this.photos.length === 0) {
             this.$refs.upload.showUploadZone();
           }
         });

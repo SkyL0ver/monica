@@ -120,7 +120,7 @@ export default {
 
   computed: {
     dirltr() {
-      return this.$root.htmldir == 'ltr';
+      return this.$root.htmldir === 'ltr';
     }
   },
 
@@ -143,7 +143,7 @@ export default {
     },
 
     compiledMarkdown (text) {
-      return marked(text, { sanitize: true });
+      return text !== undefined && text !== null ? marked(text, { sanitize: true }) : '';
     }
   }
 };

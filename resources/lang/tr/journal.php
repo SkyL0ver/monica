@@ -3,7 +3,7 @@
 /**
  * ⚠️ Editing not allowed except for 'en' language.
  *
- * @see https://github.com/monicahq/monica/blob/master/docs/contribute/translate.md for translations.
+ * @see https://github.com/monicahq/monica/blob/main/docs/contribute/translate.md for translations.
  */
 
 return [
@@ -13,6 +13,7 @@ return [
     'journal_add' => 'Bir günlük girdisi ekle',
     'journal_edit' => 'Bir günlük girdisini düzenle',
     'journal_empty' => 'Boş günlük',
+    'journal_created_at' => 'Created at {date}',
     'journal_created_automatically' => 'Otomatik olarak oluşturuldu',
     'journal_entry_type_journal' => 'Günlük girdisi',
     'journal_entry_type_activity' => 'Faaliyet',

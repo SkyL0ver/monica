@@ -11,7 +11,7 @@
 
 ## Prerequisites
 
-Monica can be configured in shared hosting environments with a little differences that we can remedy easily. In this scenerio, Monica depends on the following:
+Monica can be configured in shared hosting environments with a little differences that we can remedy easily. In this scenario, Monica depends on the following:
 
 -   A shared cPanel Server
 -   PHP 7.4+
@@ -21,7 +21,7 @@ Monica can be configured in shared hosting environments with a little difference
 
 **Git:** Git should come pre-installed with your server. If it doesn't - use the installation instructions in the link.
 
-**PHP:** Install php7.4 minimum. Generally cPanel will have a PHP 7 version installed, verify unser the 'PHP Version' section from the cPanel section. Make sure these extensions are enabled:
+**PHP:** Install php7.4 minimum. Generally cPanel will have a PHP 7 version installed, verify under the 'PHP Version' section from the cPanel section. Make sure these extensions are enabled:
 
 -   bcmath
 -   curl
@@ -39,7 +39,6 @@ Monica can be configured in shared hosting environments with a little difference
 -   sodium
 -   xml
 -   zip
--   imagick
 
 In most cases, this will be under the section called 'PHP Version' in cPanel where you can enable and disable modules. 
 
@@ -67,10 +66,13 @@ cd /public_html/[subdomain you wish to install monica on]
 git clone https://github.com/monicahq/monica.git
 ```
 
-You should check out a tagged version of Monica since `master` branch may not always be stable. Find the latest official version on the [release page](https://github.com/monicahq/monica/releases).
+You should check out a tagged version of Monica since `main` branch may not always be stable. Find the latest official version on the [release page](https://github.com/monicahq/monica/releases).
 
 ```sh
 cd /var/www/monica
+# Get latest tags from GitHub
+git fetch
+# Clone the desired version
 git checkout tags/v2.18.0
 ```
 
@@ -97,15 +99,16 @@ Open the cPanel file manager and navigate to the directory in which you want to 
     - set the `APP_ENV` variable to `production`, `local` is only used for the development version. Beware: setting `APP_ENV` to `production` will force HTTPS. Skip this if you're running Monica locally.
 3. Log into the cPanel server via SSH and navigate to the directory in which you want to install Monica.
 4. Run `composer install --no-interaction --no-dev` to install all packages.
-5. Run `php artisan key:generate` to generate an application key. This will set `APP_KEY` with the right value automatically.
-6. Run `php artisan setup:production -v` to run the migrations, seed the database and symlink folders.
+5. Run `yarn install` to install frontend packages, then `yarn run production` to build the assets (js, css).
+6. Run `php artisan key:generate` to generate an application key. This will set `APP_KEY` with the right value automatically.
+7. Run `php artisan setup:production -v` to run the migrations, seed the database and symlink folders.
 
 The `setup:production` command will run migrations scripts for database, and flush all cache for config, route, and view, as an optimization process.
 As the configuration of the application is cached, any update on the `.env` file will not be detected after that. You may have to run `php artisan config:cache` manually after every update of `.env` file.
 
 ### 4. Configure cron job
 
-Monica requires some background processes to continuously run. The list of things Monica does in the background is described [here](https://github.com/monicahq/monica/blob/master/app/Console/Kernel.php#L63).
+Monica requires some background processes to continuously run. The list of things Monica does in the background is described [here](https://github.com/monicahq/monica/blob/main/app/Console/Kernel.php#L63).
 Basically those crons are needed to send reminder emails and check if a new version is available.
 To do this, setup a cron that runs every minute that triggers the following command `php artisan schedule:run`.
 
@@ -123,7 +126,7 @@ php /var/www/monica/artisan schedule:run >> /dev/null 2>&1
 
 ### 5. Configure cPanel webserver
 
-1. Navigat to the 'Subdomain' section in the cPanel GUI:
+1. Navigate to the 'Subdomain' section in the cPanel GUI:
 
 
 2. Update the path of the domain you wish to assign to Monica to the following:

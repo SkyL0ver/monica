@@ -1,6 +1,3 @@
-<style scoped>
-</style>
-
 <template>
   <div class="reminder-rules">
     <notifications group="main" position="bottom right" />
@@ -58,7 +55,7 @@ export default {
 
   computed: {
     dirltr() {
-      return this.$root.htmldir == 'ltr';
+      return this.$root.htmldir === 'ltr';
     }
   },
 

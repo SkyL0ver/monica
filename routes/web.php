@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Contacts\CallsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -46,6 +47,8 @@ Route::middleware(['auth', 'verified', 'mfa'])->group(function () {
         Route::post('/dashboard/setTab', 'DashboardController@setTab');
     });
 
+    Route::get('/store/{file}', 'StorageController@show')->where('file', '.*')->name('storage');
+
     Route::get('/compliance', 'ComplianceController@index')->name('compliance');
     Route::post('/compliance/sign', 'ComplianceController@store');
     Route::get('/changelog', 'ChangelogController@index')->name('changelog.index');
@@ -53,6 +56,9 @@ Route::middleware(['auth', 'verified', 'mfa'])->group(function () {
     Route::get('/emotions', 'EmotionController@primaries');
     Route::get('/emotions/primaries/{emotion}/secondaries', 'EmotionController@secondaries');
     Route::get('/emotions/primaries/{emotion}/secondaries/{secondaryEmotion}/emotions', 'EmotionController@emotions');
+
+    Route::post('/me/contact', 'MeController@store');
+    Route::delete('/me/contact', 'MeController@destroy');
 
     Route::name('people.')->group(function () {
         Route::get('/people/notfound', 'ContactsController@missing')->name('missing');
@@ -150,10 +156,17 @@ Route::middleware(['auth', 'verified', 'mfa'])->group(function () {
             'index', 'store', 'update', 'destroy',
         ]);
 
+        // Gifts
+        Route::resource('people/{contact}/gifts', 'Contacts\\GiftController')->only([
+            'index', 'show', 'store', 'update', 'destroy',
+        ]);
+        Route::put('people/{contact}/gifts/{gift}/photo/{photo}', 'Contacts\\GiftController@associate');
+
         // Debt
         Route::resource('people/{contact}/debts', 'Contacts\\DebtController')->except(['index', 'show']);
 
         // Phone calls
+        Route::get('people/{contact}/calls/last', [CallsController::class, 'lastCalled']);
         Route::resource('people/{contact}/calls', 'Contacts\\CallsController')->except(['show']);
 
         // Conversations
@@ -183,6 +196,7 @@ Route::middleware(['auth', 'verified', 'mfa'])->group(function () {
         Route::get('/people/{contact}/activities/contacts', 'Contacts\\ActivitiesController@contacts')->name('activities.contacts');
         Route::get('/people/{contact}/activities/summary', 'Contacts\\ActivitiesController@summary')->name('activities.summary');
         Route::get('/people/{contact}/activities/{year}', 'Contacts\\ActivitiesController@year')->name('activities.year');
+        Route::resource('activities', 'Contacts\\ActivitiesController')->only(['store', 'update', 'destroy']);
 
         // Audit logs
         Route::get('/people/{contact}/auditlogs', 'Contacts\\ContactAuditLogController@index')->name('auditlogs');
@@ -234,8 +248,11 @@ Route::middleware(['auth', 'verified', 'mfa'])->group(function () {
             Route::apiResource('settings/personalization/lifeeventtypes', 'Account\\LifeEvent\\LifeEventTypesController', ['except' => ['index']]);
         });
 
-        Route::get('/settings/export', 'SettingsController@export')->name('export');
-        Route::get('/settings/exportToSql', 'SettingsController@exportToSQL')->name('sql');
+        Route::get('/settings/export', 'Settings\\ExportController@index')->name('export.index');
+        Route::post('/settings/exportToSql', 'Settings\\ExportController@storeSQL')->name('export.store.sql');
+        Route::post('/settings/exportToJson', 'Settings\\ExportController@storeJson')->name('export.store.json');
+        Route::post('/settings/export/{uuid}', 'Settings\\ExportController@download')->name('export.download');
+
         Route::get('/settings/import', 'SettingsController@import')->name('import');
         Route::get('/settings/import/report/{importjobid}', 'SettingsController@report')->name('report');
         Route::get('/settings/import/upload', 'SettingsController@upload')->name('upload');
@@ -257,6 +274,8 @@ Route::middleware(['auth', 'verified', 'mfa'])->group(function () {
             Route::get('/settings/subscriptions', 'Settings\\SubscriptionsController@index')->name('index');
             Route::get('/settings/subscriptions/upgrade', 'Settings\\SubscriptionsController@upgrade')->name('upgrade');
             Route::get('/settings/subscriptions/upgrade/success', 'Settings\\SubscriptionsController@upgradeSuccess')->name('upgrade.success');
+            Route::get('/settings/subscriptions/update', 'Settings\\SubscriptionsController@update')->name('update');
+            Route::post('/settings/subscriptions/update', 'Settings\\SubscriptionsController@processUpdate');
             Route::get('/settings/subscriptions/confirmPayment/{id}', 'Settings\\SubscriptionsController@confirmPayment')->name('confirm');
             Route::post('/settings/subscriptions/processPayment', 'Settings\\SubscriptionsController@processPayment')->name('payment');
             Route::get('/settings/subscriptions/invoice/{invoice}', 'Settings\\SubscriptionsController@downloadInvoice')->name('invoice');

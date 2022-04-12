@@ -1,6 +1,3 @@
-<style scoped>
-</style>
-
 <template>
   <div class="pa4-ns ph3 pv2 bb b--gray-monica">
     <p>{{ $t('people.avatar_question') }}</p>
@@ -169,7 +166,7 @@ export default {
 
   computed: {
     dirltr() {
-      return this.$root.htmldir == 'ltr';
+      return this.$root.htmldir === 'ltr';
     }
   },
 

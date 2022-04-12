@@ -1,6 +1,3 @@
-<style scoped>
-</style>
-
 <template>
   <div>
     <div class="ph4 pv3 mb3 mb0-ns bb b--gray-monica">
@@ -43,7 +40,7 @@ export default {
 
   computed: {
     dirltr() {
-      return this.$root.htmldir == 'ltr';
+      return this.$root.htmldir === 'ltr';
     }
   },
 

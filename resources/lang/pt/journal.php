@@ -3,7 +3,7 @@
 /**
  * ⚠️ Editing not allowed except for 'en' language.
  *
- * @see https://github.com/monicahq/monica/blob/master/docs/contribute/translate.md for translations.
+ * @see https://github.com/monicahq/monica/blob/main/docs/contribute/translate.md for translations.
  */
 
 return [
@@ -13,6 +13,7 @@ return [
     'journal_add' => 'Adicionar um registro no diário',
     'journal_edit' => 'Edit a journal entry',
     'journal_empty' => 'Empty journal',
+    'journal_created_at' => 'Created at {date}',
     'journal_created_automatically' => 'Criado automaticamente',
     'journal_entry_type_journal' => 'Entrada de diário',
     'journal_entry_type_activity' => 'Atividade',

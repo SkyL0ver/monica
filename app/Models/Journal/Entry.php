@@ -2,6 +2,7 @@
 
 namespace App\Models\Journal;
 
+use App\Traits\HasUuid;
 use App\Helpers\DateHelper;
 use App\Traits\Journalable;
 use App\Models\Account\Account;
@@ -14,7 +15,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  */
 class Entry extends Model implements IsJournalableInterface
 {
-    use Journalable;
+    use Journalable, HasUuid;
 
     protected $table = 'entries';
 
@@ -60,6 +61,7 @@ class Entry extends Model implements IsJournalableInterface
 
     /**
      * Get all the information of the Entry for the journal.
+     *
      * @return array
      */
     public function getInfoForJournalEntry()
@@ -75,6 +77,7 @@ class Entry extends Model implements IsJournalableInterface
             'month_name' => mb_convert_case(DateHelper::getShortMonth($this->date), MB_CASE_UPPER, 'UTF-8'),
             'year' => $this->date->year,
             'date' => $this->date,
+            'created_at' => DateHelper::getShortDateWithTime($this->created_at),
         ];
     }
 }

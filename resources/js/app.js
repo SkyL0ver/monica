@@ -13,7 +13,8 @@ require('./bootstrap');
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-window.Vue = require('vue');
+import Vue from 'vue';
+window.Vue = Vue;
 
 // Notifications
 import Notifications from 'vue-notification';
@@ -178,6 +179,11 @@ Vue.component(
 Vue.component(
   'StayInTouch',
   require('./components/people/StayInTouch.vue').default
+);
+
+Vue.component(
+  'LastCalled',
+  require('./components/people/calls/LastCalled.vue').default
 );
 
 Vue.component(

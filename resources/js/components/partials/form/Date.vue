@@ -1,6 +1,3 @@
-<style scoped>
-</style>
-
 <template>
   <div :class="{ 'form-group-error': validator && validator.$error }">
     <datepicker
@@ -130,7 +127,7 @@ export default {
 
   mounted() {
     this.updateExchange(this.value === '' ? this.defaultDate : this.value);
-    this.mondayFirst = moment.localeData().firstDayOfWeek() == 1;
+    this.mondayFirst = moment.localeData().firstDayOfWeek() === 1;
   },
 
   methods: {

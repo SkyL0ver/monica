@@ -1,6 +1,3 @@
-<style scoped>
-</style>
-
 <template>
   <div class="sidebar-box" :class="[ editMode ? 'edit' : '' ]">
     <div class="w-100 dt">
@@ -19,7 +16,7 @@
       </div>
     </div>
 
-    <p v-if="contactInformationData.length == 0 && !addMode" class="mb0">
+    <p v-if="contactInformationData.length === 0 && !addMode" class="mb0">
       <a class="pointer" href="" @click.prevent="toggleAdd">
         {{ $t('app.add') }}
       </a>
@@ -155,7 +152,7 @@ export default {
 
   computed: {
     dirltr() {
-      return this.$root.htmldir == 'ltr';
+      return this.$root.htmldir === 'ltr';
     }
   },
 

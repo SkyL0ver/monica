@@ -1,6 +1,3 @@
-<style scoped>
-</style>
-
 <template>
   <div>
     <notifications group="passport-clients" position="top middle" :duration="5000" width="400" />
@@ -85,7 +82,7 @@
                  @open="_focusInput"
     >
       <!-- Form Errors -->
-      <error :errors="form.errors" />
+      <errors :errors="form.errors" />
 
       <!-- Create Client Form -->
       <form ref="form" class="form-horizontal" role="form">
@@ -143,7 +140,7 @@
 </template>
 
 <script>
-import Error from '../partials/Error.vue';
+import Errors from '../partials/Error.vue';
 import { SweetModal } from 'sweet-modal-vue';
 import { validationMixin } from 'vuelidate';
 import { required, url } from 'vuelidate/lib/validators';
@@ -152,7 +149,7 @@ export default {
 
   components: {
     SweetModal,
-    Error
+    Errors,
   },
 
   mixins: [validationMixin],
@@ -183,7 +180,7 @@ export default {
 
   computed: {
     dirltr() {
-      return this.$root.htmldir == 'ltr';
+      return this.$root.htmldir === 'ltr';
     }
   },
 

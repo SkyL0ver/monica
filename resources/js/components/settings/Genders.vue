@@ -1,6 +1,3 @@
-<style scoped>
-</style>
-
 <template>
   <div>
     <notifications group="main" position="bottom right" />
@@ -173,7 +170,7 @@
     <!-- Delete Gender type -->
     <sweet-modal ref="deleteModal" overlay-theme="dark" :title="$t('settings.personalization_genders_modal_delete')">
       <form>
-        <div v-if="errorMessage != ''" class="form-error-message mb3">
+        <div v-if="errorMessage !== ''" class="form-error-message mb3">
           <div class="pa2">
             <p class="mb0">
               {{ errorMessage }}
@@ -184,8 +181,8 @@
           <p class="mb2">
             {{ $t('settings.personalization_genders_modal_delete_desc', {name: deleteForm.name}) }}
           </p>
-          <div v-if="deleteForm.numberOfContacts != 0 || deleteForm.isDefault">
-            <p v-if="deleteForm.numberOfContacts != 0">
+          <div v-if="deleteForm.numberOfContacts !== 0 || deleteForm.isDefault">
+            <p v-if="deleteForm.numberOfContacts !== 0">
               {{ $tc('settings.personalization_genders_modal_delete_question', deleteForm.numberOfContacts, {count: deleteForm.numberOfContacts}) }}
             </p>
             <p v-else>
@@ -297,7 +294,7 @@ export default {
 
   computed: {
     dirltr() {
-      return this.$root.htmldir == 'ltr';
+      return this.$root.htmldir === 'ltr';
     },
 
     toggleOptions() {

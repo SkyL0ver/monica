@@ -1,6 +1,3 @@
-<style scoped>
-</style>
-
 <template>
   <div :class="[ dirltr ? 'fl' : 'fr' ]" class="journal-calendar-box relative">
     <template v-if="journalEntry.show_calendar">
@@ -100,7 +97,7 @@ export default {
 
   computed: {
     dirltr() {
-      return this.$root.htmldir == 'ltr';
+      return this.$root.htmldir === 'ltr';
     }
   },
 };
