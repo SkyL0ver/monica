@@ -931,8 +931,8 @@ __metadata:
   linkType: hard
 
 "ant-design-vue@npm:^4.0.1":
-  version: 4.0.8
-  resolution: "ant-design-vue@npm:4.0.8"
+  version: 4.1.2
+  resolution: "ant-design-vue@npm:4.1.2"
   dependencies:
     "@ant-design/colors": "npm:^6.0.0"
     "@ant-design/icons-vue": "npm:^7.0.0"
@@ -958,7 +958,7 @@ __metadata:
     warning: "npm:^4.0.0"
   peerDependencies:
     vue: ">=3.2.0"
-  checksum: 633de0d34bb5e7a0f4e2cd8669d21571ad07ffdd7d2c3c9be23b2006c12901bc692b921e518fec85ff2c0f4b53503d36f08c0319e530c64f4308030841d2f6ff
+  checksum: 9d7a5b59157f4e14548787307191d40fbea02591fa0068299b6e27626071cb2f3c45397ba943981577120a92be624a5cf18825f8d33afd6cdaa4a998f2d9fcfa
   languageName: node
   linkType: hard
 
