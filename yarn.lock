@@ -2475,12 +2475,12 @@ __metadata:
   linkType: hard
 
 "laravel-vue-i18n@npm:^2.7.1":
-  version: 2.7.1
-  resolution: "laravel-vue-i18n@npm:2.7.1"
+  version: 2.7.6
+  resolution: "laravel-vue-i18n@npm:2.7.6"
   dependencies:
     php-parser: "npm:3.1.3"
     vue: "npm:^3.2.45"
-  checksum: ae5f6019798bcb4f4e19ff1424391025957ed7e61670acbd0f0dda0cf742eb1c9fa08b148788abf884017eba60ee113d0f586d534d354efbe09724a6a491bf9a
+  checksum: 5af96191ab22887a7a87a009060842c91a96968153c693ad94a0ffadddd4ef1428f44329ef4389504a838cc453d9abae131ef4cf50368cb063629d57afe495b0
   languageName: node
   linkType: hard
 
